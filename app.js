@@ -1,28 +1,11 @@
-// 1) Récupération des éléments de base sur une api JSON--------------------------------------------------------------------------------------------------------
+import { fetchJSON } from "./api.js"
+import { createElement } from "./dom.js"
 
-async function fetchJSON () {
-    const url = "https://jsonplaceholder.typicode.com/todos?_limit=5"
-    const fetchResult = await fetch(url)
-    if (fetchResult.ok) {
-        const data = await fetchResult.json()
-        // console.log(fetchResult)
-        // console.log(data)
-        return data
-    }
-    throw new Error('Erreur server', {cause: fetchResult})
-}
+
+// 1) Récupération des éléments de base sur une api JSON--------------------------------------------------------------------------------------------------------
 const todos = await fetchJSON() //on met les éléments de la todoList dans une constante todos qui est un objet à 5 éléments
 console.log(todos) //controle
 
-function createElement(tagName, attributes = {}) { //a comprendre ...
-    const element = document.createElement(tagName)
-    for (const [attribute, value] of Object.entries(attributes)) {
-        if (value !== false && value !==null) {
-            element.setAttribute(attribute, value)
-        }
-    }
-    return element
-}
 
 class TodoList {
     // todos
