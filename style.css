@@ -1,0 +1,11 @@
+/* .is-completed {
+    display: none!important;
+} */
+
+/* si on est dans A faire et que les taches sont complétées, on les cache */
+/* si on est dans Faites et que les taches sont pas complétées (que élément de class todo donc .todo:not..., on les cache */
+.hide-completed .is-completed,
+.hide-todo .todo:not(.is-completed)
+{
+    display: none!important;
+}
